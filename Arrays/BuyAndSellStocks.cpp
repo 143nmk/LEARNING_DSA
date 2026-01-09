@@ -29,11 +29,10 @@ Constraints:
 #include <bits/stdc++.h>
 using namespace std;
 
-int maxProfit(int *prices)
+int maxProfit(int *prices, int n)
 {
     int maxProfit = 0;
     int minPrice = prices[0];
-    int n = sizeof(prices) / sizeof(prices[0]);
     for (int i = 1; i < n; i++)
     {
         maxProfit = max(maxProfit, prices[i] - minPrice);
@@ -53,6 +52,7 @@ int main()
     {
         cin >> a[i];
     }
-    cout << "The maximum profit is:" << maxProfit(a);
+    cout << "Array:";
+    cout << "The maximum profit is:" << maxProfit(a, n) << endl;
     return 0;
 }
