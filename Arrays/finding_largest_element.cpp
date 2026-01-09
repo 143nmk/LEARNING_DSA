@@ -1,1 +1,0 @@
-/* Cpp  code to find the largest element in an array */
