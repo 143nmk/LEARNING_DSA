@@ -1,0 +1,1 @@
+/* Cpp code to denmonstrate the encapsulation */
