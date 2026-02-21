@@ -1,4 +1,4 @@
-/*Cpp code to create a linked lis using classes*/
+/*Cpp code to create a delete linked list using classes*/
 
 #include <iostream>
 using namespace std;
@@ -13,6 +13,17 @@ public:
     {
         val = data;
         next = NULL;
+    }
+
+    ~Node()
+    {
+        cout << "Deleting node :" << val << endl;
+        if (next != NULL)
+        {
+
+            delete next;
+            next = NULL;
+        }
     }
 };
 
@@ -79,71 +90,6 @@ public:
         temp->next = newNode;
     }
 
-    void pop_front()
-    {
-        if (head == NULL)
-        {
-            cout << "Linked List is empty";
-            return;
-        }
-        Node *temp = head;
-        head = head->next;
-        temp->next = NULL;
-        delete temp;
-    }
-
-    void pop_back()
-    {
-        if (head == NULL)
-        {
-            cout << "Linked lIst is empty";
-            return;
-        }
-        Node *temp = head;
-        while (temp->next != tail)
-        {
-            temp = temp->next;
-        }
-        tail = NULL;
-        delete tail;
-        tail = temp;
-    }
-
-    int searchLL(int key)
-    {
-        if (head == NULL)
-        {
-            cout << "Linked lIst is empty";
-            return -1;
-        }
-        Node *temp = head;
-        int index = 0;
-        while (temp != NULL)
-        {
-            if (temp->val == key)
-            {
-                return index;
-            }
-            temp = temp->next;
-        }
-    }
-
-    int searchRecursive(Node *temp, int key)
-    {
-        if (temp == NULL)
-        {
-            return -1;
-        }
-        if (temp->val == key)
-        {
-            return 0;
-        }
-        int index = searchRecursive(temp->next, key);
-        if (index == -1)
-            return -1;
-        else
-            return index + 1;
-    }
     void printList()
     {
         if (head == NULL)
@@ -159,6 +105,16 @@ public:
                 temp = temp->next;
             }
             cout << "NULL" << endl;
+        }
+    }
+
+    ~List()
+    {
+        cout << "List destructor is called" << endl;
+        if (head != NULL)
+        {
+            delete head;
+            head = NULL;
         }
     }
 };

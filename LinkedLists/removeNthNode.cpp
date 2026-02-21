@@ -108,42 +108,6 @@ public:
         delete tail;
         tail = temp;
     }
-
-    int searchLL(int key)
-    {
-        if (head == NULL)
-        {
-            cout << "Linked lIst is empty";
-            return -1;
-        }
-        Node *temp = head;
-        int index = 0;
-        while (temp != NULL)
-        {
-            if (temp->val == key)
-            {
-                return index;
-            }
-            temp = temp->next;
-        }
-    }
-
-    int searchRecursive(Node *temp, int key)
-    {
-        if (temp == NULL)
-        {
-            return -1;
-        }
-        if (temp->val == key)
-        {
-            return 0;
-        }
-        int index = searchRecursive(temp->next, key);
-        if (index == -1)
-            return -1;
-        else
-            return index + 1;
-    }
     void printList()
     {
         if (head == NULL)
@@ -162,6 +126,16 @@ public:
         }
     }
 };
+
+void removeNthNode(Node *head, int n)
+{
+    int len = findLength(head);
+    Node *temp = head;
+}
+
+int findLength(Node *head)
+{
+}
 
 int main()
 {
